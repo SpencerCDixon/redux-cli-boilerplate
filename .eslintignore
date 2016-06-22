@@ -1,0 +1,5 @@
+blueprints/**/*
+node_modules/**
+dist/**
+*.spec.js
+src/static/*
