@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introText {
+  text-align: center;
+}
+
+.welcome {
+  font-weight: 300;
+  color: #1C2023;
+  margin-top: 15%;
+  font-size: 38px;
+}
+
+.subTitle {
+  font-weight: 300;
+  color: #7E899B;
+  font-size: 30px;
+}
