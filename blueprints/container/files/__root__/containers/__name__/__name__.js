@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import css from './<%= pascalEntityName %>.css';
+import { connect } from 'react-redux';
 
 const propTypes = {
 };
@@ -12,4 +12,14 @@ class <%= pascalEntityName %> extends Component {
 }
 
 <%= pascalEntityName %>.propTypes = propTypes;
-export default <%= pascalEntityName %>;
+
+const mapStateToProps = (state) => ({
+});
+
+const actions = {
+};
+
+export default connect(
+  mapStateToProps,
+  actions,
+)(<%= pascalEntityName %>);

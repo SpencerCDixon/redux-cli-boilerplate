@@ -20,8 +20,6 @@ module.exports = {
       'react-router',
       'redux',
       'react-redux',
-      'auth0-lock',
-      'auth0-js',
       'redux-thunk',
     ]
   },
