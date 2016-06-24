@@ -1,6 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
+
+// Webpack Plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// PostCSS Plugins
+var postcssImport = require('postcss-import');
 
 // Configuration variables
 var PATHS = {
@@ -32,20 +37,21 @@ module.exports = {
     loaders: [
       { test: /\.json$/, loader: 'json' },
       { test: /\.js$|\.jsx$/, exclude: /node_modules/, loader: 'babel', },
-      { test: /\.css$/, loader: 'style!css?modules&localIdentName=[name]_[local]_[hash:base64:5]!postcss' },
+      { test: /\.css$/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss' },
       { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
     ],
   },
-  postcss: [
-    require('autoprefixer'),
-  ],
+  postcss: function(webpack) {
+    return [
+      postcssImport({ addDependencyTo: webpack }),
+    ];
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/static/index.template.html',
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({

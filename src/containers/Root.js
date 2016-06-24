@@ -4,7 +4,6 @@ import routes from '../routes';
 import { Router } from 'react-router';
 
 // Global Styles
-import 'normalize.css/normalize.css';
 import 'styles/global.css';
 
 export default class Root extends Component {

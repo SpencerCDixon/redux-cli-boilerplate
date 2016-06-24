@@ -1,3 +1,7 @@
+/* Global imports from node_modules */
+@import "normalize.css";
+
+/* Project Specific Global Overrides */
 html {
   box-sizing: border-box;
   -ms-text-size-adjust: 100%;
