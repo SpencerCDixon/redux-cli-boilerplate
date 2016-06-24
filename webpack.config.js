@@ -38,6 +38,7 @@ module.exports = {
     loaders: [
       { test: /\.json$/, loader: 'json' },
       { test: /\.js$|\.jsx$/, exclude: /node_modules/, loader: 'babel', },
+      { test: /global.styles$/, loader: 'style!css!postcss'k },
       { test: /\.css$/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss' },
       { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
     ],

@@ -1,5 +1,6 @@
 /* Global imports from node_modules */
 @import "normalize.css";
+@import "react-select/dist/react-select.css";
 
 /* Project Specific Global Overrides */
 html {

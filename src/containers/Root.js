@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import routes from '../routes';
 import { Router } from 'react-router';
 
-// Global Styles
-import 'styles/global.css';
+// Global Styles.  These won't go through css modules.
+import 'styles/global.styles';
 
 export default class Root extends Component {
   render() {

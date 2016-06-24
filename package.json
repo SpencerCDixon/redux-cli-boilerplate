@@ -1,10 +1,10 @@
 {
   "name": "redux-cli-boilerplate",
   "version": "0.0.1",
-  "description": "Simple boilerplate to complement redux-cli for faster development",
+  "description": "Simple React/Redux boilerplate to complement redux-cli for faster development",
   "main": "index.js",
   "scripts": {
-    "start": "BABEL_ENV=development webpack-dev-server --progress",
+    "start": "webpack-dev-server --progress",
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress",
     "clean": "rimraf dist",
     "deploy": "npm run lint && npm run clean && npm run build",
@@ -18,6 +18,8 @@
     "Boilerplate"
   ],
   "author": "Spencer C. Dixon",
+  "homepage": "https://github.com/SpencerCDixon/redux-cli-boilerplate",
+  "bugs": "https://github.com/SpencerCDixon/redux-cli-boilerplate/issues",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
