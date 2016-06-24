@@ -18,8 +18,9 @@ var PORT = 3000;
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-    'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:' + PORT,
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
     PATHS.entry,
   ],
   output: {

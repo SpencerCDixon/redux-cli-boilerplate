@@ -1,8 +1,0 @@
-.bounce {
-  animation: bounce 1s infinite ease-in-out;
-}
-
-@keyframes bounce {
-  33% { transform: scale(1.05); }
-  66% { transform: scale(1); }
-}
