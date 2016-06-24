@@ -11,4 +11,4 @@ export default (
   <Route path="/" component={CoreLayout}>
     <IndexRoute component={WelcomeView} />
   </Route>
-)
+);
