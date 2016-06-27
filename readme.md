@@ -50,3 +50,9 @@ src
 ├── index.js
 └── routes.js
 ```
+
+# PostCSS, CSSModules, & CSS Variables
+Global variables live inside `styles/css-global-vars.js` and will be imported
+into all CSSModule files as sass like variables using `$` prefix.
+
+

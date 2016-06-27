@@ -5,9 +5,9 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // PostCSS Plugins
-var postcssImport = require('postcss-import');
-var postcssReporter = require('postcss-reporter');
-var postcssFocus = require('postcss-focus');
+var postcssImport    = require('postcss-import');
+var postcssReporter  = require('postcss-reporter');
+var postcssFocus     = require('postcss-focus');
 var postcssVariables = require('postcss-advanced-variables');
 
 // Configuration variables
@@ -55,7 +55,7 @@ module.exports = {
       postcssReporter({ clearMessages: true }),
       postcssVariables({
         variables: require(PATHS.cssConfig),
-      })
+      }),
     ];
   },
   plugins: [

@@ -2,9 +2,9 @@ var path = require('path');
 var webpack = require('webpack');
 
 // PostCSS Plugins
-var postcssImport = require('postcss-import');
+var postcssImport    = require('postcss-import');
 var postcssVariables = require('postcss-advanced-variables');
-var cssConfig = path.join(__dirname, 'src', 'styles', 'css-global-vars.js');
+var cssConfig        = path.join(__dirname, 'src', 'styles', 'css-global-vars.js');
 
 module.exports = {
   entry: undefined,
