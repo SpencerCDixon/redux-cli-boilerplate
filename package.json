@@ -11,13 +11,6 @@
     "lint": "eslint src/**/*.js",
     "test": "CONFIG=$(pwd)/webpack.test.config.js BABEL_DISABLE_CACHE=1 NODE_ENV=test ava"
   },
-  "keywords": [
-    "React",
-    "Redux",
-    "CSS Modules",
-    "Hot Module Reloading",
-    "Boilerplate"
-  ],
   "author": "Spencer C. Dixon",
   "homepage": "https://github.com/SpencerCDixon/redux-cli-boilerplate",
   "bugs": "https://github.com/SpencerCDixon/redux-cli-boilerplate/issues",
@@ -83,5 +76,12 @@
     ],
     "verbose": true,
     "failFast": true
-  }
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "CSS Modules",
+    "Hot Module Reloading",
+    "Boilerplate"
+  ]
 }

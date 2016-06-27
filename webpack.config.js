@@ -12,6 +12,7 @@ var postcssVariables = require('postcss-advanced-variables');
 
 // Configuration variables
 var PATHS = {
+  source: path.resolve('src'),
   entry: path.resolve('src', 'index.js'),
   output: path.resolve('dist'),
   images: path.resolve('src', 'images'),
@@ -34,9 +35,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    root: [
-      path.resolve(__dirname, './src'),
-    ],
+    root: [ PATHS.source ],
     extensions: ['', '.js', '.json', '.jsx', '.css'],
   },
   module: {
