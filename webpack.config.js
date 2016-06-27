@@ -6,17 +6,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // PostCSS Plugins
 var postcssImport = require('postcss-import');
+var postcssReporter = require('postcss-reporter');
+var postcssFocus = require('postcss-focus');
+var postcssVariables = require('postcss-advanced-variables');
 
 // Configuration variables
 var PATHS = {
   entry: path.resolve('src', 'index.js'),
   output: path.resolve('dist'),
   images: path.resolve('src', 'images'),
+  cssConfig: path.resolve('src', 'styles', 'css-global-vars.js'),
 };
 var PORT = 3000;
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
+  debug: true,
   entry: [
     'webpack-dev-server/client?http://localhost:' + PORT,
     'webpack/hot/only-dev-server',
@@ -38,14 +43,19 @@ module.exports = {
     loaders: [
       { test: /\.json$/, loader: 'json' },
       { test: /\.js$|\.jsx$/, exclude: /node_modules/, loader: 'babel', },
-      { test: /global.styles$/, loader: 'style!css!postcss'k },
+      { test: /global.styles$/, loader: 'style!css!postcss' },
       { test: /\.css$/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss' },
       { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
     ],
   },
   postcss: function(webpack) {
     return [
+      postcssFocus(),
       postcssImport({ addDependencyTo: webpack }),
+      postcssReporter({ clearMessages: true }),
+      postcssVariables({
+        variables: require(PATHS.cssConfig),
+      })
     ];
   },
   plugins: [

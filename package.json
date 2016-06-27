@@ -8,7 +8,8 @@
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress",
     "clean": "rimraf dist",
     "deploy": "npm run lint && npm run clean && npm run build",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "test": "CONFIG=$(pwd)/webpack.test.config.js BABEL_DISABLE_CACHE=1 NODE_ENV=test ava"
   },
   "keywords": [
     "React",
@@ -23,14 +24,19 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "ava": "^0.15.2",
+    "babel-core": "^6.10.4",
     "babel-eslint": "^6.0.5",
     "babel-loader": "^6.2.4",
+    "babel-plugin-webpack-loaders": "^0.7.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
+    "block-loader": "^2.1.0",
     "css-loader": "^0.23.1",
     "cssnano": "^3.7.1",
+    "enzyme": "^2.3.0",
     "eslint": "^2.13.1",
     "eslint-config-standard": "^5.3.1",
     "eslint-config-standard-react": "^2.5.0",
@@ -42,8 +48,11 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.21.0",
     "json-loader": "^0.5.4",
+    "postcss-advanced-variables": "^1.2.2",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.3.3",
+    "react-addons-test-utils": "^15.1.0",
     "react-hot-loader": "^3.0.0-beta.2",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.2",
@@ -63,5 +72,16 @@
     "redux": "^3.5.2",
     "redux-form": "^6.0.0-alpha.13",
     "redux-thunk": "^2.1.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit",
+    "files": [
+      "src/**/*.test.js"
+    ],
+    "verbose": true,
+    "failFast": true
   }
 }
