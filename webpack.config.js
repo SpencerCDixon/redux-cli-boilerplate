@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 // Webpack Plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var WebpackNotifierPlugin = require('webpack-notifier');
 
 // PostCSS Plugins
 var postcssImport    = require('postcss-import');
@@ -58,6 +59,7 @@ module.exports = {
     ];
   },
   plugins: [
+    new WebpackNotifierPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/static/index.template.html',
       inject: 'body',
