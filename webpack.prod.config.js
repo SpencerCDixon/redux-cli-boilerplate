@@ -6,13 +6,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // PostCSS Plugins
-var postcssImport = require('postcss-import');
-var cssnano       = require('cssnano');
+var postcssImport    = require('postcss-import');
+var postcssFocus     = require('postcss-focus');
+var postcssVariables = require('postcss-advanced-variables');
+var cssnano          = require('cssnano');
 
 // Configuration variables
 const PATHS = {
   entry: path.resolve('src', 'index.js'),
   output: path.resolve('dist'),
+  cssConfig: path.resolve('src', 'styles', 'css-global-vars.js'),
 };
 
 const modulesHash = 'localIdentName=_[local]_[hash:base64:5]'
@@ -45,7 +48,12 @@ module.exports = {
     loaders: [
       { test: /\.json$/, loader: 'json' },
       { test: /\.js$|\.jsx$/, exclude: /node_modules/, loader: 'babel', },
-      { test: /\.css$/,
+      {
+        test: /global.styles$/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss'),
+      },
+      {
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', `css?modules&importLoaders=1&${modulesHash}!postcss`)
       },
       { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
@@ -53,7 +61,11 @@ module.exports = {
   },
   postcss: function(webpack) {
     return [
+      postcssFocus(),
       postcssImport({ addDependencyTo: webpack }),
+      postcssVariables({
+        variables: require(PATHS.cssConfig),
+      }),
       cssnano({
         autoprefixer: {
           add: true,
