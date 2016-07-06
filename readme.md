@@ -62,3 +62,7 @@ src
 ### PostCSS, CSSModules, & CSS Variables
 Global variables live inside `styles/css-global-vars.js` and will be imported
 into all CSSModule files as sass like variables using `$` prefix.
+
+### TODO
+- [ ] make the view blueprint add the import statements  
+- [ ] create a route blueprint that creates a view and a route  
